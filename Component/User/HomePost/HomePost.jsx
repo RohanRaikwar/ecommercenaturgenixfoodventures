@@ -22,6 +22,7 @@ const mockData = {
                 _id: "1",
                 name: "Salmon",
                 slug: "salmon",
+                category:"fish-equipemnts",
                 uni_id1: "123",
                 uni_id2: "456",
                 file: { filename: "https://example.com/images/salmon.jpg" }
@@ -30,6 +31,7 @@ const mockData = {
                 _id: "2",
                 name: "Tuna",
                 slug: "tuna",
+                category:"fish-food",
                 uni_id1: "789",
                 uni_id2: "101",
                 file: { filename: "https://example.com/images/tuna.jpg" }
@@ -38,6 +40,7 @@ const mockData = {
                 _id: "1",
                 name: "Salmon",
                 slug: "salmon",
+                category:"fish-equipemnts",
                 uni_id1: "123",
                 uni_id2: "456",
                 file: { filename: "https://example.com/images/salmon.jpg" }
@@ -46,6 +49,7 @@ const mockData = {
                 _id: "2",
                 name: "Tuna",
                 slug: "tuna",
+                category:"fish-food",
                 uni_id1: "789",
                 uni_id2: "101",
                 file: { filename: "https://example.com/images/tuna.jpg" }
@@ -54,6 +58,7 @@ const mockData = {
                 _id: "2",
                 name: "Tuna",
                 slug: "tuna",
+                category:"fish-food",
                 uni_id1: "789",
                 uni_id2: "101",
                 file: { filename: "https://example.com/images/tuna.jpg" }
@@ -69,7 +74,7 @@ const mockData = {
                 _id: "3",
                 name: "Mackerel",
                 slug: "mackerel",
-                category: "Fish",
+                category: "fish-seeds",
                 discount: 10,
                 available: "true",
                 price: 300,
@@ -83,7 +88,7 @@ const mockData = {
                 _id: "3",
                 name: "Mackerel",
                 slug: "mackerel",
-                category: "Fish",
+               category: "fish-seeds",
                 discount: 10,
                 available: "true",
                 price: 300,
@@ -97,7 +102,7 @@ const mockData = {
                 _id: "3",
                 name: "Mackerel",
                 slug: "mackerel",
-                category: "Fish",
+                category: "fish-seeds",
                 discount: 10,
                 available: "true",
                 price: 300,
@@ -111,7 +116,7 @@ const mockData = {
                 _id: "4",
                 name: "Shrimp",
                 slug: "shrimp",
-                category: "Seafood",
+                category: "fish-farming",
                 discount: 15,
                 available: "false",
                 price: 500,
@@ -125,7 +130,7 @@ const mockData = {
                 _id: "7",
                 name: "Sardine",
                 slug: "sardine",
-                category: "Fish",
+                category: "fish-seeds",
                 discount: 5,
                 available: "true",
                 price: 200,
@@ -139,7 +144,7 @@ const mockData = {
                 _id: "8",
                 name: "Octopus",
                 slug: "octopus",
-                category: "Seafood",
+                category: "fish-food",
                 discount: 20,
                 available: "true",
                 price: 1200,
@@ -155,7 +160,7 @@ const mockData = {
                 _id: "5",
                 name: "Crab",
                 slug: "crab",
-                category: "Seafood",
+                category: "fish-equipemnts",
                 discount: 20,
                 available: "true",
                 price: 800,
@@ -169,7 +174,7 @@ const mockData = {
                 _id: "6",
                 name: "Lobster",
                 slug: "lobster",
-                category: "Seafood",
+                category: "fish-farming",
                 discount: 25,
                 available: "true",
                 price: 1500,
@@ -183,7 +188,7 @@ const mockData = {
                 _id: "9",
                 name: "Clams",
                 slug: "clams",
-                category: "Seafood",
+                category: "fish-farming",
                 discount: 10,
                 available: "true",
                 price: 400,
@@ -197,7 +202,7 @@ const mockData = {
                 _id: "10",
                 name: "Oysters",
                 slug: "oysters",
-                category: "Seafood",
+                category: "fish-medicines",
                 discount: 30,
                 available: "true",
                 price: 1000,
@@ -211,7 +216,7 @@ const mockData = {
                 _id: "11",
                 name: "Anchovies",
                 slug: "anchovies",
-                category: "Fish",
+                category: "fish-medicines",
                 discount: 40,
                 available: "true",
                 price: 100,
@@ -225,7 +230,7 @@ const mockData = {
                 _id: "11",
                 name: "Anchovies",
                 slug: "anchovies",
-                category: "Fish",
+                category: "fish-medicines",
                 discount: 40,
                 available: "true",
                 price: 100,
@@ -239,7 +244,7 @@ const mockData = {
                 _id: "10",
                 name: "Oysters",
                 slug: "oysters",
-                category: "Seafood",
+                category: "fish-medicines",
                 discount: 30,
                 available: "true",
                 price: 1000,
@@ -253,7 +258,7 @@ const mockData = {
                 _id: "11",
                 name: "Anchovies",
                 slug: "anchovies",
-                category: "Fish",
+                category: "fish-medicines",
                 discount: 40,
                 available: "true",
                 price: 100,
@@ -267,7 +272,7 @@ const mockData = {
                 _id: "11",
                 name: "Anchovies",
                 slug: "anchovies",
-                category: "Fish",
+                category: "fish-medicines",
                 discount: 40,
                 available: "true",
                 price: 100,
@@ -281,7 +286,7 @@ const mockData = {
                 _id: "11",
                 name: "Anchovies",
                 slug: "anchovies",
-                category: "Fish",
+                category: "fish-medicines",
                 discount: 40,
                 available: "true",
                 price: 100,
@@ -302,7 +307,7 @@ const mockData = {
                 _id: "11",
                 name: "Anchovies",
                 slug: "anchovies",
-                category: "Fish",
+                category: "fish-medicines",
                 discount: 40,
                 available: "true",
                 price: 100,
@@ -316,7 +321,7 @@ const mockData = {
                 _id: "11",
                 name: "Anchovies",
                 slug: "anchovies",
-                category: "Fish",
+                category: "fish-medicines",
                 discount: 40,
                 available: "true",
                 price: 100,
@@ -330,7 +335,7 @@ const mockData = {
                 _id: "11",
                 name: "Anchovies",
                 slug: "anchovies",
-                category: "Fish",
+                category: "fish-medicines",
                 discount: 40,
                 available: "true",
                 price: 100,
@@ -344,7 +349,7 @@ const mockData = {
                 _id: "11",
                 name: "Anchovies",
                 slug: "anchovies",
-                category: "Fish",
+                category: "fish-medicines",
                 discount: 40,
                 available: "true",
                 price: 100,
@@ -358,7 +363,7 @@ const mockData = {
                 _id: "11",
                 name: "Anchovies",
                 slug: "anchovies",
-                category: "Fish",
+                category: "fish-medicines",
                 discount: 40,
                 available: "true",
                 price: 100,
@@ -372,7 +377,7 @@ const mockData = {
                 _id: "11",
                 name: "Anchovies",
                 slug: "anchovies",
-                category: "Fish",
+                category: "fish-medicines",
                 discount: 40,
                 available: "true",
                 price: 100,
@@ -388,7 +393,7 @@ const mockData = {
                 _id: "12",
                 name: "Squid",
                 slug: "squid",
-                category: "Seafood",
+                category: "fish-food",
                 discount: 35,
                 available: "true",
                 price: 600,
@@ -402,7 +407,7 @@ const mockData = {
                 _id: "12",
                 name: "Squid",
                 slug: "squid",
-                category: "Seafood",
+                category: "fish-food",
                 discount: 35,
                 available: "true",
                 price: 600,
@@ -416,7 +421,7 @@ const mockData = {
                 _id: "12",
                 name: "Squid",
                 slug: "squid",
-                category: "Seafood",
+                category: "fish-food",
                 discount: 35,
                 available: "true",
                 price: 600,
@@ -430,7 +435,7 @@ const mockData = {
                 _id: "12",
                 name: "Squid",
                 slug: "squid",
-                category: "Seafood",
+                category: "fish-food",
                 discount: 35,
                 available: "true",
                 price: 600,
@@ -444,7 +449,7 @@ const mockData = {
                 _id: "12",
                 name: "Squid",
                 slug: "squid",
-                category: "Seafood",
+                category: "fish-food",
                 discount: 35,
                 available: "true",
                 price: 600,
@@ -458,7 +463,7 @@ const mockData = {
                 _id: "12",
                 name: "Squid",
                 slug: "squid",
-                category: "Seafood",
+                category: "fish-food",
                 discount: 35,
                 available: "true",
                 price: 600,
@@ -478,7 +483,7 @@ const mockData = {
                 _id: "13",
                 name: "King Crab",
                 slug: "king-crab",
-                category: "Seafood",
+                category: "fish-medicines",
                 discount: 15,
                 available: "true",
                 price: 2000,
@@ -492,7 +497,7 @@ const mockData = {
                 _id: "13",
                 name: "King Crab",
                 slug: "king-crab",
-                category: "Seafood",
+                category: "fish-medicines",
                 discount: 15,
                 available: "true",
                 price: 2000,
@@ -506,7 +511,7 @@ const mockData = {
                 _id: "13",
                 name: "King Crab",
                 slug: "king-crab",
-                category: "Seafood",
+                category: "fish-medicines",
                 discount: 15,
                 available: "true",
                 price: 2000,
@@ -520,7 +525,7 @@ const mockData = {
                 _id: "13",
                 name: "King Crab",
                 slug: "king-crab",
-                category: "Seafood",
+                category: "fish-medicines",
                 discount: 15,
                 available: "true",
                 price: 2000,
@@ -551,6 +556,7 @@ const mockData = {
         file: { filename: "https://example.com/images/banner.jpg" }
     }
 };
+  
 
 
 function HomePost() {
@@ -611,7 +617,7 @@ function HomePost() {
                                 <SwiperSlide key={key}>
                                     <div className={style.UserCateSlidCard}>
                                         <div className={style.InnerDiv}>
-                                            <Link href={`/c/${obj.slug}`} className="LinkTagNonDec">
+                                            <Link href={`/c/${obj.category}`} className="LinkTagNonDec">
                                                 <div className={style.UserCateSlidImgDiv}>
                                                     <Image
     className={style.UserCateSlidImg}
@@ -619,7 +625,7 @@ function HomePost() {
     alt={obj.name}
     loading="lazy"
     style={{ width: '90%,' }}
-/>
+   />
  
                                                     
                                                 </div>
@@ -719,25 +725,15 @@ function HomePost() {
                                                     <button className={style.cartBtn}><i className="fa-solid fa-exclamation"></i></button>
                                                 )}
                                             </div>
-                                            <Link href={`/p/${obj.slug}/${obj._id}`} className="LinkTagNonDec">
+                                            <Link href={`/c/${obj.category}/`} className="LinkTagNonDec">
                                                 <Image
                                                 src={ProductImage}
                                                     loading="lazy" alt={obj.name}
                                                 />
                                             </Link>
-                                            <button className={style.QuickViewDiv} onClick={() => {
-                                                alert(`Quick view of ${obj.name}`);
-                                                setQuickVw({
-                                                    ...QuickVw,
-                                                    active: true,
-                                                    btn: true,
-                                                    product: obj
-                                                });
-                                            }}>
-                                                QUICK VIEW
-                                            </button>
+                                       
                                         </div>
-                                        <Link href={`/p/${obj.slug}/${obj._id}`} className="LinkTagNonDec">
+                                        <Link href={`/c/${obj.category}`} className="LinkTagNonDec">
                                             <div className='pt-2'>
                                                 <h6 className='UserGrayMain text-small oneLineTxt'><small>{obj.category}</small></h6>
                                                 <h6 className='UserBlackMain oneLineTxt'>{obj.name}</h6>
@@ -788,25 +784,15 @@ function HomePost() {
                                                     <button className={style.cartBtn}><i className="fa-solid fa-exclamation"></i></button>
                                                 )}
                                             </div>
-                                            <Link href={`/p/${obj.slug}/${obj._id}`} className="LinkTagNonDec">
+                                            <Link href={`/c/${obj.category}`} className="LinkTagNonDec">
                                                 <Image
                                                     src={ProductImage}
                                                     loading="lazy" alt={obj.name}
                                                 />
                                             </Link>
-                                            <button className={style.QuickViewDiv} onClick={() => {
-                                                alert(`Quick view of ${obj.name}`);
-                                                setQuickVw({
-                                                    ...QuickVw,
-                                                    active: true,
-                                                    btn: true,
-                                                    product: obj
-                                                });
-                                            }}>
-                                                QUICK VIEW
-                                            </button>
+                                        
                                         </div>
-                                        <Link href={`/p/${obj.slug}/${obj._id}`} className="LinkTagNonDec">
+                                        <Link href={`/c/${obj.category}`} className="LinkTagNonDec">
                                             <div className='pt-2'>
                                                 <h6 className='UserGrayMain text-small oneLineTxt'><small>{obj.category}</small></h6>
                                                 <h6 className='UserBlackMain oneLineTxt'>{obj.name}</h6>
@@ -878,26 +864,15 @@ function HomePost() {
                                                     <button className={style.cartBtn}><i className="fa-solid fa-exclamation"></i></button>
                                                 )}
                                             </div>
-                                            <Link href={`/p/${obj.slug}/${obj._id}`} className="LinkTagNonDec">
+                                            <Link href={`/c/${obj.category}`} className="LinkTagNonDec">
                                                 <Image
                                                     src={ProductImage}
                                                     loading="lazy" alt={obj.name}
                                                 />
                                             </Link>
-                                            <button className={style.QuickViewDiv} onClick={() => {
-                                            
-                                                alert(`Quick view of ${obj.name}`);
-                                                setQuickVw({
-                                                    ...QuickVw,
-                                                    active: true,
-                                                    btn: true,
-                                                    product: obj
-                                                });
-                                            }}>
-                                                QUICK VIEW
-                                            </button>
+                                         
                                         </div>
-                                        <Link href={`/p/${obj.slug}/${obj._id}`} className="LinkTagNonDec">
+                                        <Link href={`/c/${obj.category}`} className="LinkTagNonDec">
                                             <div className='pt-2'>
                                                 <h6 className='UserGrayMain text-small oneLineTxt'><small>{obj.category}</small></h6>
                                                 <h6 className='UserBlackMain oneLineTxt'>{obj.name}</h6>
@@ -948,25 +923,15 @@ function HomePost() {
                                                     <button className={style.cartBtn}><i className="fa-solid fa-exclamation"></i></button>
                                                 )}
                                             </div>
-                                            <Link href={`/p/${obj.slug}/${obj._id}`} className="LinkTagNonDec">
+                                            <Link href={`/c/${obj.category}`} className="LinkTagNonDec">
                                                 <Image
                                                 src={ProductImage}
                                                     loading="lazy" alt={obj.name}
                                                 />
                                             </Link>
-                                            <button className={style.QuickViewDiv} onClick={() => {
-                                                alert(`Quick view of ${obj.name}`);
-                                                setQuickVw({
-                                                    ...QuickVw,
-                                                    active: true,
-                                                    btn: true,
-                                                    product: obj
-                                                });
-                                            }}>
-                                                QUICK VIEW
-                                            </button>
+                                          
                                         </div>
-                                        <Link href={`/p/${obj.slug}/${obj._id}`} className="LinkTagNonDec">
+                                        <Link href={`/c/${obj.category}`} className="LinkTagNonDec">
                                             <div className='pt-2'>
                                                 <h6 className='UserGrayMain text-small oneLineTxt'><small>{obj.category}</small></h6>
                                                 <h6 className='UserBlackMain oneLineTxt'>{obj.name}</h6>
@@ -1013,7 +978,7 @@ function HomePost() {
                             {sectionfour.items.map((obj, key) => (
                                 <SwiperSlide key={key}>
                                     <div className={style.usrLastHmMainDiv}>
-                                        <Link href={`/p/${obj.slug}/${obj._id}`} className="LinkTagNonDec">
+                                        <Link href={`/c/${obj.category}`} className="LinkTagNonDec">
                                             <div className={style.usrLastHmGrid}>
                                                 <div>
                                                     <div className={style.UsrImgdivHomeLast}>

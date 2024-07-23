@@ -541,7 +541,10 @@ function ProductComp() {
                 }}>Reviews</button>
               </div>
 
-              <div className='description' style={{ display: showDesReview.description ? 'block' : 'none' }} dangerouslySetInnerHTML={{ __html: product.description }}></div>
+              <div className='description' style={{ display: 'block' }}  >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+              </div>
 
               <div className='reviews' style={{ display: showDesReview.review ? 'block' : 'none' }}>
 
@@ -1474,8 +1477,8 @@ function ProductComp() {
                           }
                         </div>
                         <Link href={'/p/' + obj.slug + '/' + obj._id}>
-                        <Image src={ProductImage} alt={obj.name} loading="lazy" />
-                         </Link>
+                          <Image src={ProductImage} alt={obj.name} loading="lazy" />
+                        </Link>
                         <button className='QuickViewDiv' onClick={() => {
                           Server.get('/users/product/' + obj.slug + '/' + obj._id).then((item) => {
                             setQuickVw({
