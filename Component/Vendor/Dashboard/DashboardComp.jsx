@@ -1,7 +1,64 @@
-import { useRouter } from "next/router"
+import { useRouter } from "next/router";
 
-function DashboardComp({response}) {
-    const navigate = useRouter()
+function DashboardComp() {
+    const navigate = useRouter();
+
+    const response = {
+        total: {
+            totalDelivered: 120,
+            totalReturn: 5,
+            totalCancelled: 10,
+            totalAmount: 15000
+        },
+        Orders: [
+            {
+                date: "2024-07-23",
+                customer: "John Doe",
+                price: "$100.00",
+                payType: "Credit Card",
+                OrderStatus: "Delivered",
+                secretOrderId: "12345",
+                userId: "1"
+            },
+            {
+                date: "2024-07-22",
+                customer: "Jane Smith",
+                price: "$200.00",
+                payType: "PayPal",
+                OrderStatus: "Cancelled",
+                secretOrderId: "12346",
+                userId: "2"
+            },
+            {
+                date: "2024-07-21",
+                customer: "Michael Brown",
+                price: "$150.00",
+                payType: "Credit Card",
+                OrderStatus: "Returned",
+                secretOrderId: "12347",
+                userId: "3"
+            },
+            {
+                date: "2024-07-20",
+                customer: "Emily Davis",
+                price: "$250.00",
+                payType: "Debit Card",
+                OrderStatus: "Delivered",
+                secretOrderId: "12348",
+                userId: "4"
+            },
+            {
+                date: "2024-07-19",
+                customer: "Chris Johnson",
+                price: "$300.00",
+                payType: "Credit Card",
+                OrderStatus: "Delivered",
+                secretOrderId: "12349",
+                userId: "5"
+            }
+        ]
+    };
+
     return (
         <div className='containerVendor'>
             <div className="dashboard pb-3">
@@ -50,22 +107,20 @@ function DashboardComp({response}) {
 
                                 <tbody>
                                     {
-                                        response['Orders'].map((obj, key) => {
-                                            return (
-                                                <tr key={key}>
-                                                    <td>{obj.date}</td>
-                                                    <td>{obj.customer}</td>
-                                                    <td>{obj.price}</td>
-                                                    <td>{obj.payType}</td>
-                                                    <td>{obj.OrderStatus}</td>
-                                                    <td>
-                                                        <button data-for="actionBtn" onClick={() => {
-                                                            navigate.push(`/vendor/orders/${obj.secretOrderId}/${obj.userId}`)
-                                                        }}>Details</button>
-                                                    </td>
-                                                </tr>
-                                            )
-                                        })
+                                        response.Orders.map((obj, key) => (
+                                            <tr key={key}>
+                                                <td>{obj.date}</td>
+                                                <td>{obj.customer}</td>
+                                                <td>{obj.price}</td>
+                                                <td>{obj.payType}</td>
+                                                <td>{obj.OrderStatus}</td>
+                                                <td>
+                                                    <button data-for="actionBtn" onClick={() => {
+                                                        navigate.push(`/vendor/orders/${obj.secretOrderId}/${obj.userId}`)
+                                                    }}>Details</button>
+                                                </td>
+                                            </tr>
+                                        ))
                                     }
                                 </tbody>
                             </table>
@@ -74,7 +129,7 @@ function DashboardComp({response}) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default DashboardComp
+export default DashboardComp;

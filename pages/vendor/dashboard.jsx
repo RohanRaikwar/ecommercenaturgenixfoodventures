@@ -25,34 +25,34 @@ export default function Dashboard() {
 
   const navigate = useRouter()
 
-  useEffect(() => {
-    let token = localStorage.getItem('vendorToken')
-    if (token) {
-      vendorAxios((server) => {
-        server.get('/vendor/getDashboard').then((res) => {
-          if (res.data.login) {
-            setResponse({
-              ...response,
-              loaded: true
-            })
-            localStorage.removeItem('vendorToken')
-            setVendorLogged({ status: false })
-            navigate.push('/vendor/login')
-          } else {
-            setResponse(res.data)
-          }
-        }).catch(() => {
-          alert("error")
-        })
-      })
-    } else {
-      setResponse({
-        ...response,
-        loaded: true
-      })
-      navigate.push('/vendor/login')
-    }
-  }, [venderLogged])
+  // useEffect(() => {
+  //   let token = localStorage.getItem('vendorToken')
+  //   if (token) {
+  //     vendorAxios((server) => {
+  //       server.get('/vendor/getDashboard').then((res) => {
+  //         if (res.data.login) {
+  //           setResponse({
+  //             ...response,
+  //             loaded: true
+  //           })
+  //           localStorage.removeItem('vendorToken')
+  //           setVendorLogged({ status: false })
+  //           navigate.push('/vendor/login')
+  //         } else {
+  //           setResponse(res.data)
+  //         }
+  //       }).catch(() => {
+  //         alert("error")
+  //       })
+  //     })
+  //   } else {
+  //     setResponse({
+  //       ...response,
+  //       loaded: true
+  //     })
+  //     navigate.push('/vendor/login')
+  //   }
+  // }, [venderLogged])
 
   return (
     <Fragment>
@@ -62,15 +62,14 @@ export default function Dashboard() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className='Vendor'>
-        {
-          response.loaded ? (
+        
             <>
               <Header />
               <DashboardComp response={response} />
 
             </>
-          ) : <Loading />
-        }
+          
+        
       </main>
     </Fragment>
   )

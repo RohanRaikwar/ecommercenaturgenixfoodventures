@@ -15,7 +15,7 @@ function DashboardComp() {
         Orders: []
     })
 
-    const mockData= [
+    const mockData = [
         {
             "date": "2024-07-18",
             "customer": "John Doe",
@@ -62,7 +62,7 @@ function DashboardComp() {
             "action": "View"
         }
     ]
-    
+
 
     const navigate = useRouter()
 
@@ -88,25 +88,25 @@ function DashboardComp() {
                     <div className="col-6 col-md-3">
                         <div className="cardDash mt-1">
                             <h6>Total Delivered</h6>
-                            <h5>{response.total.totalDelivered}</h5>
+                            <h5>{response.total.totalDelivered || 8}</h5>
                         </div>
                     </div>
                     <div className="col-6 col-md-3">
                         <div className="cardDash mt-1">
                             <h6>Total Return</h6>
-                            <h5>{response.total.totalReturn}</h5>
+                            <h5>{response.total.totalReturn || 500}</h5>
                         </div>
                     </div>
                     <div className="col-6 col-md-3">
                         <div className="cardDash mt-1">
                             <h6>Total Cancelled</h6>
-                            <h5>{response.total.totalCancelled}</h5>
+                            <h5>{response.total.totalCancelled || 4}</h5>
                         </div>
                     </div>
                     <div className="col-6 col-md-3">
                         <div className="cardDash mt-1">
                             <h6>Total Amount</h6>
-                            <h5>{response.total.totalAmount}</h5>
+                            <h5>{response.total.totalAmount || 56}</h5>
                         </div>
                     </div>
                 </div>

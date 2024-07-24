@@ -18,46 +18,47 @@ function LoginComp() {
 
     const formHandle = (e) => {
         e.preventDefault()
-        if (otpSent) {
-            Server.post('/vendor/login', formData).then((response) => {
-                if (response.data.request) {
-                    setOtpSent(false)
-                    alert("Vendor Request Accepting Under Pending")
-                } else {
-                    if (response.data.resent) {
-                        alert('Resent OTP')
-                    } else {
-                        if (response.data.status) {
-                            localStorage.setItem('vendorToken', response.data.token)
-                            document.body.style.background = 'transparent'
-                            navigate.push('/vendor/dashboard')
-                            alert("Done")
-                        } else {
-                            alert("Wrong OTP")
-                        }
-                    }
-                }
-            }).catch(() => {
-                alert("Error")
-            })
-        } else {
-            Server.post('/vendor/sentOtpLogin', formData).then((res) => {
-                if (res.data.request) {
-                    setOtpSent(false)
-                    alert("Accepted Vendor Not Found")
-                } else {
-                    if (res.data.mail) {
-                        setOtpSent(true)
-                        alert("Otp Sent Successfully")
-                    } else {
-                        setOtpSent(false)
-                        alert("Otp Sent Failed")
-                    }
-                }
-            }).catch(() => {
-                alert("Error")
-            })
-        }
+        // if (otpSent) {
+        //     Server.post('/vendor/login', formData).then((response) => {
+        //         if (response.data.request) {
+        //             setOtpSent(false)
+        //             alert("Vendor Request Accepting Under Pending")
+        //         } else {
+        //             if (response.data.resent) {
+        //                 alert('Resent OTP')
+        //             } else {
+        //                 if (response.data.status) {
+        //                     localStorage.setItem('vendorToken', response.data.token)
+        //                     document.body.style.background = 'transparent'
+        //                     navigate.push('/vendor/dashboard')
+        //                     alert("Done")
+        //                 } else {
+        //                     alert("Wrong OTP")
+        //                 }
+        //             }
+        //         }
+        //     }).catch(() => {
+        //         alert("Error")
+        //     })
+        // } else {
+        //     Server.post('/vendor/sentOtpLogin', formData).then((res) => {
+        //         if (res.data.request) {
+        //             setOtpSent(false)
+        //             alert("Accepted Vendor Not Found")
+        //         } else {
+        //             if (res.data.mail) {
+        //                 setOtpSent(true)
+        //                 alert("Otp Sent Successfully")
+        //             } else {
+        //                 setOtpSent(false)
+        //                 alert("Otp Sent Failed")
+        //             }
+        //         }
+        //     }).catch(() => {
+        //         alert("Error")
+        //     })
+        // }
+        navigate.push('/vendor/dashboard')
     }
 
     return (

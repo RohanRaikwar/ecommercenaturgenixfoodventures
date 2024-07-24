@@ -16,38 +16,38 @@ export default function Orders() {
     const [total, setTotal] = useState(0)
     const navigate = useRouter()
 
-    useEffect(() => {
-        let token = localStorage.getItem('vendorToken')
+    // useEffect(() => {
+    //     let token = localStorage.getItem('vendorToken')
 
-        if (token) {
-            vendorAxios((server) => {
-                server.get('/vendor/getAllOrders', {
-                    params: {
-                        search: search,
-                        skip: 0,
-                    }
-                }).then((res) => {
-                    if (res.data.login) {
-                        setLoaded(true)
-                        setVendorLogged({ status: false })
-                        localStorage.removeItem('vendorToken')
-                        navigate.push('/vendor/login')
-                    } else {
-                        setOrders(res.data.orders)
-                        setTotal(res.data.total)
-                        setLoaded(true)
-                    }
-                }).catch(() => {
-                    console.log('err')
-                    setLoaded(true)
-                })
-            })
-        } else {
-            setLoaded(true)
-            navigate.push('/vendor/login')
-        }
+    //     if (token) {
+    //         vendorAxios((server) => {
+    //             server.get('/vendor/getAllOrders', {
+    //                 params: {
+    //                     search: search,
+    //                     skip: 0,
+    //                 }
+    //             }).then((res) => {
+    //                 if (res.data.login) {
+    //                     setLoaded(true)
+    //                     setVendorLogged({ status: false })
+    //                     localStorage.removeItem('vendorToken')
+    //                     navigate.push('/vendor/login')
+    //                 } else {
+    //                     setOrders(res.data.orders)
+    //                     setTotal(res.data.total)
+    //                     setLoaded(true)
+    //                 }
+    //             }).catch(() => {
+    //                 console.log('err')
+    //                 setLoaded(true)
+    //             })
+    //         })
+    //     } else {
+    //         setLoaded(true)
+    //         navigate.push('/vendor/login')
+    //     }
 
-    }, [search])
+    // }, [search])
     return (
         <Fragment>
             <Head>
@@ -56,16 +56,14 @@ export default function Orders() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
             <main className='Vendor'>
-                {
-                    loaded ? (
+              
                         <>
                             <Header />
                             <OrdersComp search={search} setSearch={setSearch}
                                 Orders={Orders} setOrders={setOrders}
                                 setTotal={setTotal} total={total} />
                         </>
-                    ) : <Loading />
-                }
+                
             </main>
         </Fragment>
     )

@@ -12,26 +12,26 @@ export default function Settings() {
     const { venderLogged, setVendorLogged } = useContext(ContentControl)
     const [loaded, setLoaded] = useState(false)
     let router = useRouter()
-    useEffect(() => {
-        let token = localStorage.getItem('vendorToken')
-        if (token) {
-            if (!venderLogged.status) {
-                vendorCheck(token, (data) => {
-                    setVendorLogged(data)
-                    if (!data.status) {
-                        localStorage.removeItem('vendorToken')
-                        router.push('/vendor/login')
-                    }
-                    setLoaded(true)
-                })
-            } else {
-                setLoaded(true)
-            }
-        } else {
-            setLoaded(true)
-            router.push('/vendor/login')
-        }
-    }, [venderLogged])
+    // useEffect(() => {
+    //     let token = localStorage.getItem('vendorToken')
+    //     if (token) {
+    //         if (!venderLogged.status) {
+    //             vendorCheck(token, (data) => {
+    //                 setVendorLogged(data)
+    //                 if (!data.status) {
+    //                     localStorage.removeItem('vendorToken')
+    //                     router.push('/vendor/login')
+    //                 }
+    //                 setLoaded(true)
+    //             })
+    //         } else {
+    //             setLoaded(true)
+    //         }
+    //     } else {
+    //         setLoaded(true)
+    //         router.push('/vendor/login')
+    //     }
+    // }, [venderLogged])
 
     return (
         <Fragment>
@@ -41,14 +41,12 @@ export default function Settings() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
             <main className='Vendor'>
-                {
-                    loaded ? (
+             
                         <>
                             <Header />
                             <SettingsComp venderLogged={venderLogged} setVendorLogged={setVendorLogged} />
                         </>
-                    ) : <Loading />
-                }
+                
             </main>
         </Fragment>
     )

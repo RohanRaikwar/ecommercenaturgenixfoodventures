@@ -27,61 +27,61 @@ export default function Products() {
 
     const [products, setProducts] = useState([])
 
-    useEffect(() => {
-        let token = localStorage.getItem('vendorToken')
+    // useEffect(() => {
+    //     let token = localStorage.getItem('vendorToken')
 
-        if (token) {
-            setLoaded(false)
-            if (!router.query.search && search.length === 0) {
-                vendorAxios((server) => {
-                    server.get('/vendor/getProducts', {
-                        params: {
-                            page: 1,
-                            search: null
-                        }
-                    }).then((response) => {
-                        if (response.data.login) {
-                            setVendorLogged({ status: false })
-                            localStorage.removeItem('vendorToken')
-                            router.push('/vendor/login')
-                        } else {
-                            setProducts(response.data.data)
-                            setResponse(response.data)
-                            setPages(response.data.pages)
-                        }
-                    }).catch((err) => {
-                        console.log("error")
-                    })
-                    setSearch('')
-                })
-                setLoaded(true)
-            } else {
-                vendorAxios((server) => {
-                    server.get('/vendor/getProducts', {
-                        params: {
-                            page: 1,
-                            search: router.query.search
-                        }
-                    }).then((response) => {
-                        if (response.data.login) {
-                            setVendorLogged({ status: false })
-                            localStorage.removeItem('vendorToken')
-                            router.push('/vendor/login')
-                        } else {
-                            setProducts(response.data.data)
-                            setResponse(response.data)
-                            setPages(response.data.pages)
-                        }
-                    }).catch((err) => {
-                        console.log("error")
-                    })
-                })
-                setLoaded(true)
-            }
-        } else {
-            router.push('/vendor/login')
-        }
-    }, [search, router.asPath, venderLogged, update])
+    //     if (token) {
+    //         setLoaded(false)
+    //         if (!router.query.search && search.length === 0) {
+    //             vendorAxios((server) => {
+    //                 server.get('/vendor/getProducts', {
+    //                     params: {
+    //                         page: 1,
+    //                         search: null
+    //                     }
+    //                 }).then((response) => {
+    //                     if (response.data.login) {
+    //                         setVendorLogged({ status: false })
+    //                         localStorage.removeItem('vendorToken')
+    //                         router.push('/vendor/login')
+    //                     } else {
+    //                         setProducts(response.data.data)
+    //                         setResponse(response.data)
+    //                         setPages(response.data.pages)
+    //                     }
+    //                 }).catch((err) => {
+    //                     console.log("error")
+    //                 })
+    //                 setSearch('')
+    //             })
+    //             setLoaded(true)
+    //         } else {
+    //             vendorAxios((server) => {
+    //                 server.get('/vendor/getProducts', {
+    //                     params: {
+    //                         page: 1,
+    //                         search: router.query.search
+    //                     }
+    //                 }).then((response) => {
+    //                     if (response.data.login) {
+    //                         setVendorLogged({ status: false })
+    //                         localStorage.removeItem('vendorToken')
+    //                         router.push('/vendor/login')
+    //                     } else {
+    //                         setProducts(response.data.data)
+    //                         setResponse(response.data)
+    //                         setPages(response.data.pages)
+    //                     }
+    //                 }).catch((err) => {
+    //                     console.log("error")
+    //                 })
+    //             })
+    //             setLoaded(true)
+    //         }
+    //     } else {
+    //         router.push('/vendor/login')
+    //     }
+    // }, [search, router.asPath, venderLogged, update])
 
     return (
         <Fragment>
@@ -91,8 +91,7 @@ export default function Products() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
             <main className='Vendor'>
-                {
-                    loaded ? (
+              
                         <>
                             <Header />
                             <ProductsComp
@@ -103,8 +102,7 @@ export default function Products() {
                                 setUpdate={setUpdate}
                             />
                         </>
-                    ) : <Loading />
-                }
+                
             </main>
         </Fragment>
     )
