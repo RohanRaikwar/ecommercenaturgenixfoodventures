@@ -127,87 +127,90 @@ function CheckoutComp({
         e.preventDefault()
 
         if (orderDetails.pin.length === 6) {
-            if (orderDetails.number.length === 10) {
-                setLoading(true)
-                Server.post('/users/checkPincode', {
-                    pin: parseInt(orderDetails.pin)
-                }).then((res) => {
-                    if (res.data) {
-                        if (orderDetails.payType === 'online') {
-                            userAxios((server) => {
-                                server.post('/users/createRazorpayPayment', {
-                                    totalAmount: orderDetails.totalAmount
-                                }).then((data) => {
-                                    if (data.data.login) {
-                                        setLoading(false)
-                                        setUserLogged({ status: false })
-                                        localStorage.removeItem('token')
-                                        setLogError(true)
-                                        setLoginModal(loginModal => ({
-                                            ...loginModal,
-                                            btn: true,
-                                            member: true,
-                                            active: true,
-                                            forgot: false
-                                        }))
-                                    } else {
-                                        setLoading(false)
-                                        razorpay(data.data)
-                                    }
-                                }).catch(() => {
-                                    alert("Error")
-                                })
-                            })
-                        } else {
-                            setLoading(true)
-                            Server.post('/users/order-item-cod', {
-                                userId: userLogged._id,
-                                order: orderDetails
-                            }).then(() => {
-                                setLoading(false)
-                                setOrderType(type => ({
-                                    ...type,
-                                    order: false,
-                                    type: '',
-                                    exAction: true,
-                                    exActionData: {
-                                        failed: false,
-                                        success: true
-                                    }
-                                }))
-                                navigate.push('/ordersuccess') // done page
-                            }).catch((data) => {
-                                setLoading(false)
+            if (orderDetails.number.length === 10) 
+                {
+                    navigate.push('/ordersuccess')
+        //         setLoading(true)
+        //         Server.post('/users/checkPincode', {
+        //             pin: parseInt(orderDetails.pin)
+        //         }).then((res) => {
+        //             if (res.data) {
+        //                 if (orderDetails.payType === 'online') {
+        //                     userAxios((server) => {
+        //                         server.post('/users/createRazorpayPayment', {
+        //                             totalAmount: orderDetails.totalAmount
+        //                         }).then((data) => {
+        //                             if (data.data.login) {
+        //                                 setLoading(false)
+        //                                 setUserLogged({ status: false })
+        //                                 localStorage.removeItem('token')
+        //                                 setLogError(true)
+        //                                 setLoginModal(loginModal => ({
+        //                                     ...loginModal,
+        //                                     btn: true,
+        //                                     member: true,
+        //                                     active: true,
+        //                                     forgot: false
+        //                                 }))
+        //                             } else {
+        //                                 setLoading(false)
+        //                                 razorpay(data.data)
+        //                             }
+        //                         }).catch(() => {
+        //                             alert("Error")
+        //                         })
+        //                     })
+        //                 } else {
+        //                     setLoading(true)
+        //                     Server.post('/users/order-item-cod', {
+        //                         userId: userLogged._id,
+        //                         order: orderDetails
+        //                     }).then(() => {
+        //                         setLoading(false)
+        //                         setOrderType(type => ({
+        //                             ...type,
+        //                             order: false,
+        //                             type: '',
+        //                             exAction: true,
+        //                             exActionData: {
+        //                                 failed: false,
+        //                                 success: true
+        //                             }
+        //                         }))
+        //                         navigate.push('/ordersuccess') // done page
+        //                     }).catch((data) => {
+        //                         setLoading(false)
 
-                                setOrderType(type => ({
-                                    ...type,
-                                    order: false,
-                                    type: '',
-                                    exAction: true,
-                                    exActionData: {
-                                        failed: true,
-                                        success: false
-                                    }
-                                }))
-                                navigate.push('/orderfailed') // fail page
-                            })
-                        }
-                    } else {
-                        setLoading(false)
-                        alert("Delivery not available your selected pincode")
-                    }
-                }).catch(() => {
-                    setLoading(false)
-                    alert("Error")
-                })
-            } else {
-                alert("Pincode must 10 numbers")
+        //                         setOrderType(type => ({
+        //                             ...type,
+        //                             order: false,
+        //                             type: '',
+        //                             exAction: true,
+        //                             exActionData: {
+        //                                 failed: true,
+        //                                 success: false
+        //                             }
+        //                         }))
+        //                         navigate.push('/orderfailed') // fail page
+        //                     })
+        //                 }
+        //             } else {
+        //                 setLoading(false)
+        //                 alert("Delivery not available your selected pincode")
+        //             }
+        //         }).catch(() => {
+        //             setLoading(false)
+        //             alert("Error")
+        //         })
+        //     } else {
+        //         alert("Pincode must 10 numbers")
+        //     }
+        // } else {
+        //     alert("Pincode must 6 numbers")
+        // }
             }
-        } else {
-            alert("Pincode must 6 numbers")
-        }
-
     }
+}
 
     return (
         <>

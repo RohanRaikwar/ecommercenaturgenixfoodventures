@@ -13,14 +13,14 @@ function Msg() {
     const [loaded, setLoaded] = useState(false)
     const navigate = useRouter()
 
-    useEffect(() => {
-        if (!OrderType.exAction) {
-            navigate.push('/')
-            setLoaded(true)
-        } else {
-            setLoaded(true)
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (!OrderType.exAction) {
+    //         navigate.push('/')
+    //         setLoaded(true)
+    //     } else {
+    //         setLoaded(true)
+    //     }
+    // }, [])
 
     return (
         <Fragment>
@@ -30,15 +30,14 @@ function Msg() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
             <main>
-                {
-                    loaded ? (
+                
                         <>
                             <Header />
                             <OrderSuccess />
                             <Footer />
                         </>
-                    ) : <Loading />
-                }
+                   
+                
             </main>
         </Fragment>
     )
