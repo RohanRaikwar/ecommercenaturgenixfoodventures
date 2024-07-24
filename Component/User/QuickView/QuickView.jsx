@@ -193,7 +193,7 @@ function QuickView() {
 
                             <div>
                                 <button onClick={() => {
-                                    navigate.push(`/p/${QuickVw.product.slug}/${QuickVw.product._id}`)
+                                    navigate.push(`/p/${QuickVw.product.slug}/${QuickVw.product._id}`)  
                                     setQuickVw({ ...QuickVw, active: false })
                                 }} className='ShowMoreBtn'>SHOW MORE</button>
                             </div>
