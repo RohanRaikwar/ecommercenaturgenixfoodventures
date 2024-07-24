@@ -73,6 +73,7 @@ function Header() {
                                         <span className='UserGreenMain'><i className="fa-solid fa-truck-fast fa-lg"></i></span>&nbsp;&nbsp;
                                         <span className='font-normal UserGrayMain'>All India Home Delivery</span>
                                         <span className='font-normal UserGrayMain'><Link href={'/vendor/login'} style={{ textDecoration: "none", marginInline: "10px", color: "gray" }}>Vendor Login</Link></span>
+                                        <span className='font-normal UserGrayMain'><Link href={'/admin/login'} style={{ textDecoration: "none", marginInline: "10px", color: "gray" }}>Admin Login</Link></span>
                                     </h5>
                                 </div>
                                 <div className="col-6">
