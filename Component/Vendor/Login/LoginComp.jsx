@@ -4,7 +4,7 @@ import Server from '../../../Config/Server'
 
 function LoginComp() {
     useEffect(() => {
-        document.body.style.background = '#080710'
+        document.body.style.background = 'white'
     },[])
 
     const navigate = useRouter()
