@@ -222,7 +222,7 @@ function CartComp({ products, setUpdate, amount, setOrderType }) {
                           order: true,
                           type: 'cart'
                         })
-                        navigate.push('/checkout')
+                        navigate.push('/')
                       }}>place order</button>
 
                     </div>

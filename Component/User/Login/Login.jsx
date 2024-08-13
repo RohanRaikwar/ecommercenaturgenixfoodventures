@@ -147,7 +147,7 @@ function Login({ LoginModal, setLoginModal }) {
                         if (res.data.status) {
                             setUserLogged(res.data)
                             setLoginModal({ ...LoginModal, active: false })
-                            alert("Login successful")
+                            alert("Login Successfully ")
                         } else {
                             extraErrorRef.current.style.display = 'block'
                             setExtraError('Wrong user data')

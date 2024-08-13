@@ -12,6 +12,7 @@ const ImageModal = dynamic(() => import('@/Component/User/Product/ImageModal'))
 const ProductComp = dynamic(() => import('@/Component/User/Product/ProductComp'))
 
 export const getServerSideProps = async ({ query }) => {
+    console.log("query::>>>",query)
     try {
         let response = await Server.get(`/users/product/${query.slug}/${query.id}`)
         return {
@@ -23,7 +24,7 @@ export const getServerSideProps = async ({ query }) => {
     } catch (err) {
         return {
             redirect: {
-                destination: '/404',
+                destination: `/users/product/${query.slug}/${query.id}`,
                 permanent: false,
             },
         }
@@ -67,17 +68,18 @@ function Product({ response }) {
                             proId: response['data'].product._id
                         }).catch((err) => {
                             console.log("cart fetch error")
-                            route.push('/error')
+                           
                         })
 
-                        if (data.data.login) {
+                        if (data?.data.login) {
                             setUserLogged({ status: false })
                             localStorage.removeItem('token')
                         } else {
                             setOrderDetails(obj => ({
                                 ...obj,
-                                proId: response['data'].product._id,
-                                incart: data['data'].incart
+                              proId: response?.data?.product?._id,
+                                  incart: data?.data?.incart
+
                             }))
                         }
 

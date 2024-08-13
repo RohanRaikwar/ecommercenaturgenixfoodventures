@@ -9,8 +9,7 @@ import Server, { ServerId, userAxios } from '../../../Config/Server'
 import ReviewModal from './ReviewModal'
 import CheckPinModal from './CheckPinModal'
 import { useRouter } from 'next/router'
-import Image from 'next/image'
-import ProductImage from '../../../public/cart.jpg'
+
 
 function ProductComp() {
 
@@ -165,7 +164,7 @@ function ProductComp() {
                   images.map((item, key) => {
                     return (
                       <SwiperSlide key={key} className="MainimgDiv">
-                        <Image className='Mainimg' src={ProductImage} loading="lazy" alt={product.name} onMouseEnter={(e) => {
+                        <img className='Mainimg' src={ServerId + '/product/' + product.uni_id_1 + product.uni_id_2 + '/' + item.filename} loading="lazy" alt={product.name} onMouseEnter={(e) => {
                           setMagnifier(true)
                           const elem = e.currentTarget;
                           const { width, height } = elem.getBoundingClientRect();
@@ -229,7 +228,7 @@ function ProductComp() {
                   images.map((item, key) => {
                     return (
                       <SwiperSlide key={key} className="ThumbDiv">
-                        <Image className='ThumbSingle' src={ProductImage} alt={product.name} />
+                        <img className='ThumbSingle' src={ServerId + '/product/' + product.uni_id_1 + product.uni_id_2 + '/' + item.filename} alt={product.name} />
                       </SwiperSlide>
                     )
                   })
@@ -486,7 +485,7 @@ function ProductComp() {
                                 }
                               }).then((res) => {
                                 if (res.data.login) {
-                                  LogOut()
+                                  // LogOut()
                                   setLoginModal(obj => ({
                                     ...obj,
                                     btn: true,
@@ -541,10 +540,7 @@ function ProductComp() {
                 }}>Reviews</button>
               </div>
 
-              <div className='description' style={{ display: 'block' }}  >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-              </div>
+              <div className='description' style={{ display: showDesReview.description ? 'block' : 'none' }} dangerouslySetInnerHTML={{ __html: product.description }}></div>
 
               <div className='reviews' style={{ display: showDesReview.review ? 'block' : 'none' }}>
 
@@ -1459,7 +1455,7 @@ function ProductComp() {
                                         forgot: false
                                       }))
                                     } else {
-                                      if (res.data.found) {
+                                      if (res?.data?.found) {
                                         alert("Already in cart")
                                       } else {
                                         alert("Product added to cart")
@@ -1477,7 +1473,7 @@ function ProductComp() {
                           }
                         </div>
                         <Link href={'/p/' + obj.slug + '/' + obj._id}>
-                          <Image src={ProductImage} alt={obj.name} loading="lazy" />
+                          <img src={ServerId + '/product/' + obj.uni_id_1 + obj.uni_id_2 + '/' + obj.files[0].filename} alt={obj.name} loading="lazy" />
                         </Link>
                         <button className='QuickViewDiv' onClick={() => {
                           Server.get('/users/product/' + obj.slug + '/' + obj._id).then((item) => {

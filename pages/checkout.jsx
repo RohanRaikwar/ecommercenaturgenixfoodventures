@@ -5,6 +5,7 @@ import ContentControl from "@/ContentControl/ContentControl"
 import { userAxios } from "@/Config/Server"
 import LoginError from "@/Component/Error/LoginError"
 import { useRouter } from "next/router"
+import data from "@/out/bootstrap/js/dist/dom/data"
 const Footer = dynamic(() => import('@/Component/User/Footer/Footer'))
 const Header = dynamic(() => import('@/Component/User/Header/Header'))
 const CheckoutComp = dynamic(() => import('@/Component/User/Checkout/CheckoutComp'))
@@ -15,11 +16,15 @@ function Checkout() {
         setUserLogged, OrderType, setOrderType
     } = useContext(ContentControl)
 
+    console.log('ordertype',OrderType);
+    
+
     const navigate = useRouter()
 
     const [razorpayKey, setRazorpayKey] = useState('')
 
     const [loading, setLoading] = useState(false)
+
 
     const [logError, setLogError] = useState(false)
 
@@ -51,12 +56,14 @@ function Checkout() {
     })
 
     useEffect(() => {
+
         const token = localStorage.getItem('token')
         if (!OrderType.order) {
             navigate.push('/')
         } else {
             if (token) {
                 setLogError(false)
+                console.log('Sending request with parameters:');
                 if (OrderType.type === 'cart') {
                     userAxios((server) => {
                         server.get('/users/getCartTotalPriceCheckout', {
@@ -64,6 +71,7 @@ function Checkout() {
                                 discount: discount
                             }
                         }).then((res) => {
+                            console.log('Sending request with parameters:');
 
                             if (res.data.login) {
                                 setUserLogged({ status: false })
@@ -76,6 +84,7 @@ function Checkout() {
                                     active: true
                                 }))
                             } else {
+                                console.log('Sending request with parameters:');
                                 if (res.data['amount'].totalPrice > 0) {
                                     setAddress(res.data['address'])
                                     setAmount(res.data['amount'])
@@ -93,6 +102,7 @@ function Checkout() {
                     })
                 } else {
                     userAxios((server) => {
+                        console.log('User not logged in, redirecting to login');
                         server.get('/users/getTotalPriceProduct', {
                             params: {
                                 proId: OrderType.proId,
@@ -112,19 +122,25 @@ function Checkout() {
                                     active: true
                                 }))
                             } else {
+                                console.log('Total price is greater than 0, setting state');
+
                                 if (res.data['amount'].totalPrice > 0) {
                                     setAddress(res.data['address'])
                                     setAmount(res.data['amount'])
                                     setAmountOrg(res.data['amount'])
                                     setRazorpayKey(res.data['key'])
+
                                 } else {
+                                    console.error('Total price is 0 or less, something went wrong');
                                     alert("Something Wrong")
-                                    navigate.push('/')
+                                  
                                 }
                             }
                         }).catch((err) => {
-                            alert("Something Wrong")
-                            navigate.push('/')
+                            console.error('An error occurred:', err);
+
+                            alert("Something ")
+                           
                         })
                     })
                 }

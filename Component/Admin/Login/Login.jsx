@@ -18,6 +18,7 @@ function Login() {
         e.preventDefault()
      
         Server.post('/admin/login', formData).then((res) => {
+            console.log(res.data.admin);
             if (res.data.admin) {
                 localStorage.setItem('adminToken', res.data.admin)
                 navigate.push('/admin/dashboard')
