@@ -12,7 +12,7 @@ function CheckUser(req, res, next) {
 
     try {
         // Verify the token using the secret key
-        const decoded = jwt.verify(token, 'Shalinitiwari');
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
         // Attach the decoded user information to the request object
         req.user = decoded;
