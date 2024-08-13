@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const ServerId = process.env.ServerId // For Files
 
-const ServerUrl = "http://localhost:5000" 
+const ServerUrl = "https://multivendor-ecommerce-45lz.onrender.com/" 
 
 export const userAxios = (callback) => {
     let token = localStorage.getItem('token')
