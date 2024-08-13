@@ -5,7 +5,6 @@ import ContentControl from "@/ContentControl/ContentControl"
 import { userAxios } from "@/Config/Server"
 import LoginError from "@/Component/Error/LoginError"
 import { useRouter } from "next/router"
-import data from "@/out/bootstrap/js/dist/dom/data"
 const Footer = dynamic(() => import('@/Component/User/Footer/Footer'))
 const Header = dynamic(() => import('@/Component/User/Header/Header'))
 const CheckoutComp = dynamic(() => import('@/Component/User/Checkout/CheckoutComp'))
